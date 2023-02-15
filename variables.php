@@ -6,5 +6,7 @@
 // $nombreEsposaProfe = "Angela tiene $edadEsposaProfe";
 $miNombre = 'Reinaldo';
 $miEdad = 38;
-
-echo "\nHola, soy $miNombre, tengo $miEdad años";
+$miEdad2 = 1;
+echo "Hola, soy $miNombre, tengo $miEdad años\n";
+echo 'Hola, soy $miNombre, tengo $miEdad años\n';
+echo "\nHola, soy " . $miNombre . ', tengo ' . $miEdad . " años\n";
