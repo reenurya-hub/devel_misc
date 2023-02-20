@@ -1,13 +1,11 @@
 # develollos
-## Default personal repository
-## Repositorio de desarrollo por defecto de Reinaldo Urquijo
-
-# reenurya-hub.github.io
-## A personal space Curriculum Vitae web-page like
-## Espacio para comentar un poco más acerca de mi definición como persona, experiencia laboral, aficiones, y más... 
-
-## Repo general GitHub:
 [General Repository "develollos"] (https://github.com/reenurya/develollos.git) 
+### Default personal repository
+### Repositorio de desarrollo por defecto de Reinaldo Urquijo
+
+## reenurya-hub.github.io
+### A personal space Curriculum Vitae web-page like
+### Espacio para comentar un poco más acerca de mi definición como persona, experiencia laboral, aficiones, y más... 
 
 #### Who am I? - ¿Quien soy?
 I am a person, not a number or code, first of all. A human being with qualities and defects like another human being, father of family, and a happy husband. I am Systems technologyst whith more than 10 years of experience and 5 years in software development. Very curious by many tech issues, especially technology, retro-computing, retro-videogaming, independent movies, old cars, DYI in house.
