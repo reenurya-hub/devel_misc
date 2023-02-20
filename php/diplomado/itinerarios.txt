@@ -1,0 +1,4 @@
+arrays
+https://www.php.net/manual/es/language.types.array.php
+
+funciones
