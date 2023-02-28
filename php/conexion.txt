@@ -1,0 +1,4 @@
+1. ingresar a la carpeta donde está el index.php
+2. digitar  php -S localhost:8000
+
+para ejecutar desde terminal digitar: php -f clase04.php
