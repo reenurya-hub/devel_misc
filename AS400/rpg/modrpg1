@@ -1,0 +1,24 @@
+ Columns . . . :    1  71            Edit                     REINALDO1/MODRPG1 
+ SEU==>                                                                   ARC02 
+ FMT A* .....A*. 1 ...+... 2 ...+... 3 ...+... 4 ...+... 5 ...+... 6 ...+... 7  
+        *************** Beginning of data ************************************* 
+0001.00      A****************************************************              
+0002.00      A*     ARC02 - INFORMACION BASICA DEL CLIENTE       *              
+0003.00      A*                                                  *              
+0004.00      A****************************************************              
+0005.00      A                                      UNIQUE                      
+0006.00      A          R ARC02R                                                
+0007.00      A            ARC2NID       21A         TEXT('NUMERO DE IDENTIFICAC 
+0008.00      A            ARC2NOM       50A         TEXT('NOMBRE DEL CLIENTE ') 
+0009.00      A            ARC2APE       50A         TEXT('APELLIDO DEL CLIENTE' 
+0010.00      A            ARC2CIU       60A         TEXT('NOMBRE CIUDAD NACIMIE 
+0011.00      A            ARC2EDA        3S 0       TEXT('EDAD DEL CLIENTE')    
+0012.00      A          K ARC2NID                                               
+        ****************** End of data **************************************** 
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+ F3=Exit   F4=Prompt   F5=Refresh   F9=Retrieve   F10=Cursor   F11=Toggle       
+ F16=Repeat find       F17=Repeat change          F24=More keys                 
+                                                                                
