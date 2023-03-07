@@ -90,79 +90,61 @@ received a , and the next multiple of from is . Since , the student's grade will
 Student
 received a grade below , so the grade will not be modified and the student's final grade is .
 */
-#include <bits/stdc++.h>
+import java.io.*;
+import java.math.*;
+import java.text.*;
+import java.util.*;
+import java.util.regex.*;
 
-using namespace std;
+public class Solution {
 
-string ltrim(const string &);
-string rtrim(const string &);
-
-/*
- * Complete the 'gradingStudents' function below.
- *
- * The function is expected to return an INTEGER_ARRAY.
- * The function accepts INTEGER_ARRAY grades as parameter.
- */
-
-vector<int> gradingStudents(vector<int> grades) {
-
-}
-
-int main()
-{
-    ofstream fout(getenv("OUTPUT_PATH"));
-
-    string grades_count_temp;
-    getline(cin, grades_count_temp);
-
-    int grades_count = stoi(ltrim(rtrim(grades_count_temp)));
-
-    vector<int> grades(grades_count);
-
-    for (int i = 0; i < grades_count; i++) {
-        string grades_item_temp;
-        getline(cin, grades_item_temp);
-
-        int grades_item = stoi(ltrim(rtrim(grades_item_temp)));
-
-        grades[i] = grades_item;
-    }
-
-    vector<int> result = gradingStudents(grades);
-
-    for (size_t i = 0; i < result.size(); i++) {
-        fout << result[i];
-
-        if (i != result.size() - 1) {
-            fout << "\n";
+    /*
+     * Complete the gradingStudents function below.
+     */
+    static int[] gradingStudents(int[] grades) {
+        /*
+         * Write your code here.
+         */
+         for(int i=0; i<grades.length; i++){
+        if(grades[i]>=38){
+            if( (grades[i]%5) >= 3){
+                grades[i] = grades[i] + (5- grades[i]%5);
+            }
+            if(grades[i] < 40){
+                grades[i]=40;
+            }
         }
     }
+    return grades;
 
-    fout << "\n";
+    }
 
-    fout.close();
+    private static final Scanner scan = new Scanner(System.in);
 
-    return 0;
-}
+    public static void main(String[] args) throws IOException {
+        BufferedWriter bw = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-string ltrim(const string &str) {
-    string s(str);
+        int n = Integer.parseInt(scan.nextLine().trim());
 
-    s.erase(
-        s.begin(),
-        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
-    );
+        int[] grades = new int[n];
 
-    return s;
-}
+        for (int gradesItr = 0; gradesItr < n; gradesItr++) {
+            int gradesItem = Integer.parseInt(scan.nextLine().trim());
+            grades[gradesItr] = gradesItem;
+        }
 
-string rtrim(const string &str) {
-    string s(str);
+        int[] result = gradingStudents(grades);
 
-    s.erase(
-        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
-        s.end()
-    );
+        for (int resultItr = 0; resultItr < result.length; resultItr++) {
+            bw.write(String.valueOf(result[resultItr]));
 
-    return s;
+            if (resultItr != result.length - 1) {
+                bw.write("\n");
+            }
+        }
+
+        bw.newLine();
+
+        bw.close();
+    }
 }
