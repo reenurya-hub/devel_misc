@@ -72,80 +72,59 @@ Hints: Beware of integer overflow! Use 64-bit Integer.
 
 Need help to get started? Try the Solve Me First problem
 */
-#include <bits/stdc++.h>
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
 
-using namespace std;
+public class Solution {
 
-string ltrim(const string &);
-string rtrim(const string &);
-vector<string> split(const string &);
+    // Complete the miniMaxSum function below.
+    static void miniMaxSum(int[] arr) {
+      long sum = 0;
+      long may = 0;
+      long men = Long.MAX_VALUE;
+      int i=0;
+      int j=0;
+      long[] la = Arrays.stream(arr).asLongStream().toArray();
 
-/*
- * Complete the 'miniMaxSum' function below.
- *
- * The function accepts INTEGER_ARRAY arr as parameter.
- */
+      for( j=0; j<=4; j++)
+      {
+         for( i=0; i<=4; i++)
+         {
+            sum = sum + arr[i];
+         }
+         sum = sum - arr[j];
+         if(sum > may){
+            may=sum;
+         }
+         if(sum<men ){
+            men=sum;
+         }
+         sum = 0;
+      }
+      System.out.println(men + " " + may);
 
-void miniMaxSum(vector<int> arr) {
-
-}
-
-int main()
-{
-
-    string arr_temp_temp;
-    getline(cin, arr_temp_temp);
-
-    vector<string> arr_temp = split(rtrim(arr_temp_temp));
-
-    vector<int> arr(5);
-
-    for (int i = 0; i < 5; i++) {
-        int arr_item = stoi(arr_temp[i]);
-
-        arr[i] = arr_item;
     }
 
-    miniMaxSum(arr);
+    private static final Scanner scanner = new Scanner(System.in);
 
-    return 0;
-}
+    public static void main(String[] args) {
+        int[] arr = new int[5];
 
-string ltrim(const string &str) {
-    string s(str);
+        String[] arrItems = scanner.nextLine().split(" ");
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-    s.erase(
-        s.begin(),
-        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
-    );
+        for (int i = 0; i < 5; i++) {
+            int arrItem = Integer.parseInt(arrItems[i]);
+            arr[i] = arrItem;
+        }
 
-    return s;
-}
+        miniMaxSum(arr);
 
-string rtrim(const string &str) {
-    string s(str);
-
-    s.erase(
-        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
-        s.end()
-    );
-
-    return s;
-}
-
-vector<string> split(const string &str) {
-    vector<string> tokens;
-
-    string::size_type start = 0;
-    string::size_type end = 0;
-
-    while ((end = str.find(" ", start)) != string::npos) {
-        tokens.push_back(str.substr(start, end - start));
-
-        start = end + 1;
+        scanner.close();
     }
-
-    tokens.push_back(str.substr(start));
-
-    return tokens;
 }
