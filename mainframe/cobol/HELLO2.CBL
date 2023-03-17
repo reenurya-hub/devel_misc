@@ -1,0 +1,29 @@
+     IDENTIFICATION DIVISION.
+	   PROGRAM-ID. HELLO2.
+	   ENVIRONMENT DIVISION.
+	  ******************************************************************
+	  * THIS PROGRAM DISPLAYS A 'HELLO WORLD' MESSAGE THAT WILL
+	  * SHOW UP IN THE SYSYOUT OF THE JOB OUTPUT.
+	  ******************************************************************
+	   
+	  *CONFIGURATION SECTION.
+	  *SPECIAL-NAMES.   SYSIN IS SYSIN.
+	   INPUT-OUTPUT SECTION.
+
+     DATA DIVISION.
+       
+     FILE SECTION.
+       
+     WORKING-STORAGE SECTION.
+       
+       01	WORK-FIELDS.
+
+	     05	HELLO-WORLD-SW			PIC X(1)		VALUE	'Y'.
+	   
+	   PROCEDURE DIVISION.
+	  ** CODE UP SOME DISPLAY STATEMENTS OF YOUR OWN
+	  ** DISPLAY STATEMENTS MUST HAVE THE SINGLE QUOTES AROUND THE
+	  
+	       DISPLAY 'HELLO WORLD!'
+		     DISPLAY 'Learning COBOL is FUN!'
+		     STOP RUN.
