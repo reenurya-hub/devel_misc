@@ -3,8 +3,7 @@
 ### Reinaldo Urquijo's default personal repository
 
 ## reenurya-hub.github.io
-### A personal space Curriculum Vitae web-page like
-### A personal space to resume my CV and other topics of my interest (personal, job, etc.)
+#### A personal space Curriculum Vitae web-page like. A personal space to resume my CV and other topics of my interest (personal, job, etc.).
 
 #### Who am I? - ¿Quien soy?
 I am a person, not a number or code, first of all. A human being with qualities and defects like another human being, father of family, and a happy husband. I am Systems technologyst whith more than 10 years of experience and 5 years in software development. Very curious by many tech issues, especially technology, retro-computing, retro-videogaming, independent movies, old cars, DYI in house.
