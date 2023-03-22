@@ -1,0 +1,6 @@
+
+                                                                                                    03/22/23                                                                                                 
+CLIENT ID              LAST NAME                                  FIRST NAME                                 DATE OF BIRTH     GENDER     CIVIL STATUS     PEOPLE IN CHARGE     SALARY               ERROR ME
+--------------------   ----------------------------------------   ----------------------------------------   --------   --------   --------   --------   ---------   -----------------                                                                                                                                                                                                                                    
+          1088365986   URQUIJO                                    JOSE                                       99850106   M          M          02         005500000   INVALID YEAR OF DATE OF BIRTH           
+          1088365986   URQUIJO                                    JOSE                                       19852106   M          M          02         005500000   INVALID MONTH OF DATE OF BIRTH          
