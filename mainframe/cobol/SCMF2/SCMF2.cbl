@@ -1,0 +1,133 @@
+        IDENTIFICATION DIVISION.
+        PROGRAM-ID. SCMF2.
+        
+        ENVIRONMENT DIVISION.
+        INPUT-OUTPUT SECTION.
+        FILE-CONTROL.
+        
+        SELECT LFMASTER ASSIGN TO "MASTER.DAT"
+        FILE STATUS IS LFMASTER-CHECK-KEY
+        ORGANIZATION IS LINE SEQUENTIAL.
+        
+        SELECT LFTRANSF ASSIGN TO "TRANSF.DAT"
+        FILE STATUS IS LFTRANSF-CHECK-KEY
+        ORGANIZATION IS LINE SEQUENTIAL.
+        
+        SELECT LFNEWMTR ASSIGN TO "NEWMTR.DAT"
+        ORGANIZATION IS LINE SEQUENTIAL.
+        
+        DATA DIVISION.
+        FILE SECTION.
+        FD LFMASTER.
+        01 STUMASTER.
+            88 MTRENDOFFILE VALUE HIGH-VALUES.
+            03 STU-ID			PIC 9(10).
+            03 DETAILS          PIC X(23).
+        
+        FD LFTRANSF.
+	    01 STUTRANSF.
+			88 TRNSFENDOFFILE VALUE HIGH-VALUES.
+			02 NEWSTUID  	 	PIC 9(10).
+			02 NEWDETAILS    	PIC X(23).
+			02 TRANSCODE     	PIC X.        
+        
+        FD LFNEWMTR.			
+	    01 NEWSTURECORD         PIC X(33).
+        
+        WORKING-STORAGE SECTION.
+        
+	    01  WS-WORK-AREAS.
+	        05  LFMASTER-CHECK-KEY  PIC X(2).
+		    05  LFTRANSF-CHECK-KEY  PIC X(2).
+        
+		01  DETAIL-LINE.
+			05 DET-STU-ID       PIC 9(10).
+			05 DET-DETAILS      PIC X(23).
+        
+        PROCEDURE DIVISION.
+        
+        0100-READ-STUDENTS.
+           OPEN INPUT LFMASTER
+           IF LFMASTER-CHECK-KEY NOT = "00"
+		      DISPLAY "ERR: OPEN FILE ERROR MASTER ",
+				 LFMASTER-CHECK-KEY
+		      GO TO 9000-END-PROGRAM
+		   END-IF.
+		   OPEN INPUT LFTRANSF
+		   IF LFTRANSF-CHECK-KEY NOT = "00"
+		      DISPLAY "ERR: OPEN FILE ERROR TRANSFILE ",
+			     LFTRANSF-CHECK-KEY
+		   END-IF.	 
+			 
+		   OPEN OUTPUT LFNEWMTR.
+		   
+		   READ LFMASTER
+			AT END SET MTRENDOFFILE TO TRUE
+			END-READ.
+			
+		   READ LFTRANSF 
+		    AT END SET TRNSFENDOFFILE TO TRUE
+			END-READ.
+			
+		   PERFORM 0200-PROCESS-STUDENTS UNTIL 
+		      (MTRENDOFFILE) AND (TRNSFENDOFFILE).
+		   		   
+		   PERFORM 9000-END-PROGRAM.
+        
+        0200-PROCESS-STUDENTS.
+	        EVALUATE TRUE
+			  WHEN(STU-ID < NEWSTUID)
+			    WRITE NEWSTURECORD FROM STUMASTER
+				  READ LFMASTER 
+				    AT END SET MTRENDOFFILE TO TRUE
+				  END-READ
+				  
+			  WHEN (STU-ID > NEWSTUID)
+			    WRITE NEWSTURECORD FROM STUTRANSF 
+				  READ LFTRANSF
+				    AT END SET TRNSFENDOFFILE TO TRUE
+			      END-READ 
+				 
+				  
+			  WHEN (STU-ID = NEWSTUID AND TRANSCODE = 'D')
+                  READ LFTRANSF
+                      AT END SET TRNSFENDOFFILE TO TRUE
+                  END-READ	
+                  READ LFMASTER 
+				    AT END SET MTRENDOFFILE TO TRUE
+				  END-READ
+				  
+              WHEN (STU-ID = NEWSTUID AND TRANSCODE = 'C')
+			      MOVE NEWSTUID TO DET-STU-ID
+				  MOVE NEWDETAILS TO DET-DETAILS
+			      WRITE NEWSTURECORD FROM DETAIL-LINE
+                  READ LFTRANSF
+                      AT END SET TRNSFENDOFFILE TO TRUE
+                  END-READ
+                  READ LFMASTER 
+				    AT END SET MTRENDOFFILE TO TRUE
+				  END-READ		
+
+              WHEN ((STU-ID NOT = NEWSTUID) AND 
+              (TRANSCODE NOT= 'C' OR 'D'))
+                    DISPLAY "INVALID TRANSACTION CODE FOR STU-ID: ",
+                    STU-ID
+                    READ LFTRANSF 
+                       AT END SET TRNSFENDOFFILE TO TRUE
+                       END-READ       
+              WHEN ((STU-ID = NEWSTUID) AND 
+              (TRANSCODE NOT= 'C' OR 'D'))
+                    DISPLAY "INVALID TRANSACTION CODE FOR STU-ID: ",
+                    STU-ID
+                    READ LFTRANSF 
+                       AT END SET TRNSFENDOFFILE TO TRUE
+                       END-READ       
+
+		    END-EVALUATE.      
+        
+        9000-END-PROGRAM.
+           CLOSE LFMASTER.	
+           CLOSE LFTRANSF.
+           CLOSE LFNEWMTR.
+           STOP RUN.
+        END PROGRAM SCMF2.
