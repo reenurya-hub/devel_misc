@@ -1,0 +1,62 @@
+        IDENTIFICATION DIVISION.
+        PROGRAM-ID. SFMRG1.
+       
+        ENVIRONMENT DIVISION.
+        INPUT-OUTPUT SECTION.
+        FILE-CONTROL.
+        SELECT LFSFSRT1 ASSIGN TO "VEGFRUT.DAT"
+        FILE STATUS IS FILE-CHECK-KEY
+        ORGANIZATION IS LINE SEQUENTIAL.
+        
+        SELECT NEWFILE ASSIGN TO "AVEGFRUT.DAT"
+        FILE STATUS IS NEW-FILE-CHECK-KEY
+        ORGANIZATION IS LINE SEQUENTIAL.
+
+        SELECT SORTEDFILE ASSIGN TO "VEGFRUT.NEW"
+        ORGANIZATION IS LINE SEQUENTIAL.
+        
+        SELECT WORKFILE ASSIGN TO "WORKFILE.TMP".
+        
+        DATA DIVISION.
+        FILE SECTION.
+        
+        FD LFSFSRT1.
+        01 VEGFRUT-DETAILS      PIC X(27).
+       
+        FD SORTEDFILE.
+        01 SORTED-DETAILS       PIC X(27).
+
+        FD NEWFILE.
+        01 NEWFRUTVEG-DETAILS   PIC X(27).
+
+        SD WORKFILE.
+        01 WORKREC.
+            03 CODVF		PIC 9(5).
+            03 DESC		PIC X(20).
+            03 UNID		PIC X(2).
+        
+        WORKING-STORAGE SECTION.
+        01  WS-WORK-AREAS.
+             05  FILE-CHECK-KEY   PIC X(2).
+             05  NEW-FILE-CHECK-KEY    PIC X(2).
+        
+        
+        PROCEDURE DIVISION.
+        0100-READ-FILE.
+        
+            MERGE WORKFILE ON ASCENDING KEY 
+		      CODVF
+		      USING LFSFSRT1 
+			    NEWFILE
+			  GIVING SORTEDFILE.
+
+        PERFORM 9000-END-PROGRAM.
+		   
+        0100-END.
+	   
+	   
+        9000-END-PROGRAM.
+            CLOSE LFSFSRT1, NEWFILE	
+            STOP RUN.        
+        
+        END PROGRAM SFMRG1.
