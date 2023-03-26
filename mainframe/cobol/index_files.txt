@@ -1,2 +1,3 @@
 STIDF1 - Create Indexed File from Sequential File.
 SFTRF1 - Create Randomized File from Sequential File.
+SFMRG1 - MERGE FROM SEQUENTIAL FILE.
