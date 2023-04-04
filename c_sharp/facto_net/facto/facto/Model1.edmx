@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="factoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="empresa">
+          <Key>
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="emp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="emp_tipid" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="emp_numid" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="emp_nom" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="emp_dir" Type="varchar" MaxLength="80" />
+          <Property Name="emp_ciu" Type="varchar" MaxLength="20" />
+          <Property Name="emp_depto" Type="varchar" MaxLength="20" />
+          <Property Name="emp_tel" Type="varchar" MaxLength="20" />
+          <Property Name="emp_tel2" Type="varchar" MaxLength="20" />
+          <Property Name="emp_tel3" Type="varchar" MaxLength="20" />
+          <Property Name="emp_email" Type="varchar" MaxLength="30" />
+          <Property Name="emp_web" Type="varchar" MaxLength="30" />
+          <Property Name="emp_rlegal" Type="varchar" MaxLength="30" />
+          <Property Name="emp_fconstit" Type="date" />
+          <Property Name="emp_fregistro" Type="date" />
+        </EntityType>
+        <Function Name="proc_emp_delempnumid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="p_emp_numid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="proc_emp_insemp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="p_emp_tipid" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_numid" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_nom" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_dir" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_ciu" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_depto" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_tel" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_tel2" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_tel3" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_email" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_web" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_rlegal" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_fconstit" Type="date" Mode="In" />
+          <Parameter Name="p_emp_fregistro" Type="date" Mode="In" />
+        </Function>
+        <Function Name="proc_emp_selempnumid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="p_emp_numid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="proc_emp_updemp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="p_emp_tipid" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_numid" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_nom" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_dir" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_ciu" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_depto" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_tel" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_tel2" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_tel3" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_email" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_web" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_rlegal" Type="varchar" Mode="In" />
+          <Parameter Name="p_emp_fconstit" Type="date" Mode="In" />
+          <Parameter Name="p_emp_fregistro" Type="date" Mode="In" />
+        </Function>
+        <EntityContainer Name="factoModelStoreContainer">
+          <EntitySet Name="empresa" EntityType="Self.empresa" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="factoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="empresa">
+          <Key>
+            <PropertyRef Name="emp_id" />
+          </Key>
+          <Property Name="emp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="emp_tipid" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emp_numid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emp_nom" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emp_dir" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="emp_ciu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="emp_depto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="emp_tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="emp_tel2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="emp_tel3" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="emp_email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="emp_web" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="emp_rlegal" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="emp_fconstit" Type="DateTime" Precision="0" />
+          <Property Name="emp_fregistro" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="factoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="empresa" EntityType="Self.empresa" />
+          <FunctionImport Name="proc_emp_delempnumid">
+            <Parameter Name="p_emp_numid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="proc_emp_insemp">
+            <Parameter Name="p_emp_tipid" Mode="In" Type="String" />
+            <Parameter Name="p_emp_numid" Mode="In" Type="String" />
+            <Parameter Name="p_emp_nom" Mode="In" Type="String" />
+            <Parameter Name="p_emp_dir" Mode="In" Type="String" />
+            <Parameter Name="p_emp_ciu" Mode="In" Type="String" />
+            <Parameter Name="p_emp_depto" Mode="In" Type="String" />
+            <Parameter Name="p_emp_tel" Mode="In" Type="String" />
+            <Parameter Name="p_emp_tel2" Mode="In" Type="String" />
+            <Parameter Name="p_emp_tel3" Mode="In" Type="String" />
+            <Parameter Name="p_emp_email" Mode="In" Type="String" />
+            <Parameter Name="p_emp_web" Mode="In" Type="String" />
+            <Parameter Name="p_emp_rlegal" Mode="In" Type="String" />
+            <Parameter Name="p_emp_fconstit" Mode="In" Type="DateTime" />
+            <Parameter Name="p_emp_fregistro" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="proc_emp_selempnumid" ReturnType="Collection(factoModel.proc_emp_selempnumid_Result)">
+            <Parameter Name="p_emp_numid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="proc_emp_updemp">
+            <Parameter Name="p_emp_tipid" Mode="In" Type="String" />
+            <Parameter Name="p_emp_numid" Mode="In" Type="String" />
+            <Parameter Name="p_emp_nom" Mode="In" Type="String" />
+            <Parameter Name="p_emp_dir" Mode="In" Type="String" />
+            <Parameter Name="p_emp_ciu" Mode="In" Type="String" />
+            <Parameter Name="p_emp_depto" Mode="In" Type="String" />
+            <Parameter Name="p_emp_tel" Mode="In" Type="String" />
+            <Parameter Name="p_emp_tel2" Mode="In" Type="String" />
+            <Parameter Name="p_emp_tel3" Mode="In" Type="String" />
+            <Parameter Name="p_emp_email" Mode="In" Type="String" />
+            <Parameter Name="p_emp_web" Mode="In" Type="String" />
+            <Parameter Name="p_emp_rlegal" Mode="In" Type="String" />
+            <Parameter Name="p_emp_fconstit" Mode="In" Type="DateTime" />
+            <Parameter Name="p_emp_fregistro" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="proc_emp_selempnumid_Result">
+          <Property Type="String" Name="emp_tipid" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="emp_numid" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="emp_nom" Nullable="false" MaxLength="80" />
+          <Property Type="String" Name="emp_dir" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="emp_ciu" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="emp_depto" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="emp_tel" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="emp_tel2" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="emp_tel3" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="emp_email" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="emp_web" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="emp_rlegal" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="emp_fconstit" Nullable="true" />
+          <Property Type="DateTime" Name="emp_fregistro" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="factoModelStoreContainer" CdmEntityContainer="factoEntities">
+          <EntitySetMapping Name="empresa">
+            <EntityTypeMapping TypeName="factoModel.empresa">
+              <MappingFragment StoreEntitySet="empresa">
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="emp_tipid" ColumnName="emp_tipid" />
+                <ScalarProperty Name="emp_numid" ColumnName="emp_numid" />
+                <ScalarProperty Name="emp_nom" ColumnName="emp_nom" />
+                <ScalarProperty Name="emp_dir" ColumnName="emp_dir" />
+                <ScalarProperty Name="emp_ciu" ColumnName="emp_ciu" />
+                <ScalarProperty Name="emp_depto" ColumnName="emp_depto" />
+                <ScalarProperty Name="emp_tel" ColumnName="emp_tel" />
+                <ScalarProperty Name="emp_tel2" ColumnName="emp_tel2" />
+                <ScalarProperty Name="emp_tel3" ColumnName="emp_tel3" />
+                <ScalarProperty Name="emp_email" ColumnName="emp_email" />
+                <ScalarProperty Name="emp_web" ColumnName="emp_web" />
+                <ScalarProperty Name="emp_rlegal" ColumnName="emp_rlegal" />
+                <ScalarProperty Name="emp_fconstit" ColumnName="emp_fconstit" />
+                <ScalarProperty Name="emp_fregistro" ColumnName="emp_fregistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="proc_emp_delempnumid" FunctionName="factoModel.Store.proc_emp_delempnumid" />
+          <FunctionImportMapping FunctionImportName="proc_emp_insemp" FunctionName="factoModel.Store.proc_emp_insemp" />
+          <FunctionImportMapping FunctionImportName="proc_emp_selempnumid" FunctionName="factoModel.Store.proc_emp_selempnumid">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="factoModel.proc_emp_selempnumid_Result">
+                <ScalarProperty Name="emp_tipid" ColumnName="emp_tipid" />
+                <ScalarProperty Name="emp_numid" ColumnName="emp_numid" />
+                <ScalarProperty Name="emp_nom" ColumnName="emp_nom" />
+                <ScalarProperty Name="emp_dir" ColumnName="emp_dir" />
+                <ScalarProperty Name="emp_ciu" ColumnName="emp_ciu" />
+                <ScalarProperty Name="emp_depto" ColumnName="emp_depto" />
+                <ScalarProperty Name="emp_tel" ColumnName="emp_tel" />
+                <ScalarProperty Name="emp_tel2" ColumnName="emp_tel2" />
+                <ScalarProperty Name="emp_tel3" ColumnName="emp_tel3" />
+                <ScalarProperty Name="emp_email" ColumnName="emp_email" />
+                <ScalarProperty Name="emp_web" ColumnName="emp_web" />
+                <ScalarProperty Name="emp_rlegal" ColumnName="emp_rlegal" />
+                <ScalarProperty Name="emp_fconstit" ColumnName="emp_fconstit" />
+                <ScalarProperty Name="emp_fregistro" ColumnName="emp_fregistro" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="proc_emp_updemp" FunctionName="factoModel.Store.proc_emp_updemp" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,16 @@
+C:\Users\usuario\source\repos\facto\facto\bin\Debug\facto.exe.config
+C:\Users\usuario\source\repos\facto\facto\bin\Debug\facto.exe
+C:\Users\usuario\source\repos\facto\facto\bin\Debug\facto.pdb
+C:\Users\usuario\source\repos\facto\facto\bin\Debug\EntityFramework.dll
+C:\Users\usuario\source\repos\facto\facto\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\usuario\source\repos\facto\facto\bin\Debug\EntityFramework.xml
+C:\Users\usuario\source\repos\facto\facto\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\usuario\source\repos\facto\facto\obj\Debug\facto.csproj.AssemblyReference.cache
+C:\Users\usuario\source\repos\facto\facto\obj\Debug\facto.csproj.SuggestedBindingRedirects.cache
+C:\Users\usuario\source\repos\facto\facto\obj\Debug\facto.Form1.resources
+C:\Users\usuario\source\repos\facto\facto\obj\Debug\facto.Properties.Resources.resources
+C:\Users\usuario\source\repos\facto\facto\obj\Debug\facto.csproj.GenerateResource.cache
+C:\Users\usuario\source\repos\facto\facto\obj\Debug\facto.csproj.CoreCompileInputs.cache
+C:\Users\usuario\source\repos\facto\facto\obj\Debug\facto.csproj.CopyComplete
+C:\Users\usuario\source\repos\facto\facto\obj\Debug\facto.exe
+C:\Users\usuario\source\repos\facto\facto\obj\Debug\facto.pdb
